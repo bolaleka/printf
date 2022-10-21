@@ -22,6 +22,13 @@ typedef struct format
 	int (*f)();
 } convert_match;
 
+int printf_HEX(va_list val)
+int printf_hex_num(unsigned long int num)
+int printf_binaryNum(va_list val)
+int printf_srev(va_list args)
+int printf_int(va_list args)
+int printf_dec(va_list args)
+int printf_octalNum(va_list val)
 int printf_rot13(va_list args)
 int _strlen(char *s);
 int *_strcpy(char *dest, char *src);
