@@ -22,6 +22,7 @@ typedef struct format
 	int (*f)();
 } convert_match;
 
+int printf_rot13(va_list args)
 int _strlen(char *s);
 int *_strcpy(char *dest, char *src);
 int _strlenc(const char *s);
