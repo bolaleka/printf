@@ -1,7 +1,6 @@
 #include "main.h"
 #include <stdio.h>
 
-
 /**
  * _printf - function reproduce output according to a format
  * @format: constant format
@@ -11,39 +10,34 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
-	unsigned int c, i, len, id;
-	char *s;
+	unsigned int count;
 
 	va_start(args, format);
-	len = _strlen((char *)format);
-	i = 0;
-
-	if (len == 0)
-		return (0);
-	while (format[i] != '\0')
+	count = 0;
+	while (*format)
 	{
-		if (format[i] != '%')
+		if (*format == '%') 
 		{
-			_putchar(format[i]);
-		} else if (format[i] == '%' && format[i + 1] == 'c')
+			format++;
+			if (*format == 'i' || *format == 'd')
+			{
+				print_digits(args, count);
+			} else if (*format == 'c')
+			{
+				print_char(args, count);
+			} else if(*format == 's')
+			{
+				print_str(args, count);
+			}else 
+				_putchar('%');
+			count += 1;
+		} else
 		{
-			i++;
-			c = va_arg(args, int);
-			_putchar(c);
-		} else if (format[i] == '%' && format[i + 1] == 's')
-		{
-			i++;
-			s = va_arg(args, char *);
-			_puts(s);
-		} else if (format[i] == '%' && (format[i + 1] == 'i'
-					|| format[i + 1] == 'd'))
-		{
-			i++;
-			id = va_arg(args, int);
-			print_number(id);
+			_putchar(*format);
+			count++;
 		}
-		i++;
+		format++;
 	}
 	va_end(args);
-	return (0);
+	return (count);
 }
