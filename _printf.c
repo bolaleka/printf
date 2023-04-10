@@ -24,7 +24,8 @@ int _printf(const char *format, ...)
 				print_digits(args, count);
 			} else if (*format == 'c')
 			{
-				print_char(args, count);
+				count = print_char(args, count);
+				count++;
 			} else if(*format == 's')
 			{
 				count = print_str(args, count);

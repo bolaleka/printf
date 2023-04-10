@@ -10,7 +10,7 @@
 int _strlen(char *s);
 int _printf(const char *format, ...);
 int _putchar(int c);
-void print_char(va_list args, int count);
+int print_char(va_list args, int count);
 int print_str(va_list args, int count);
 int print_number(int n);
 void print_digits(va_list args, int count);
