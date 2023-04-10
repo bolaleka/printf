@@ -27,10 +27,9 @@ int _printf(const char *format, ...)
 				print_char(args, count);
 			} else if(*format == 's')
 			{
-				print_str(args, count);
+				count = print_str(args, count);
 			}else 
 				_putchar('%');
-			count += 1;
 		} else
 		{
 			_putchar(*format);
