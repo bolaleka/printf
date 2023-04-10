@@ -5,10 +5,10 @@
  * @args: argument to pass into va_list
  * @count: increment the string
  * 
- * Return: void
+ * Return: Integer
  */
 
-void print_str(va_list args, int count)
+int print_str(va_list args, int count)
 {
 	char *s;
 
@@ -18,4 +18,5 @@ void print_str(va_list args, int count)
 		_putchar(*s++);
 		count++;
 	}
+	return count;
 }
